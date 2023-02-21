@@ -1,11 +1,33 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+
+import styles from '../styles/Home.module.scss'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router = useRouter()
+  const [account, setAccount] = useState()
+
+  const handleConnect = async () => {
+    try {
+      const newAccounts = await window.coin98.provider.request({
+        method: 'eth_accounts'
+      })
+      setAccount(newAccounts[0])
+      localStorage.setItem('ID_CHAT', newAccounts[0])
+    } catch (error) {
+      console.error('err connect', error)
+    }
+  }
+
+  const handleJoinRoom = () => {
+    router.push('/chat-room')
+  }
+
   return (
     <>
       <Head>
@@ -15,7 +37,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        something new 
+        <div className="content-connect">
+        <button className='button-connect' onClick={!account ? handleConnect : handleJoinRoom}>
+          {account ? 'Join Room' : 'Connect Coin98 Wallet'}
+        </button>
+
+        <h2 className="address-connect">
+          {account ? `Welcome ${account}` : 'Please Connect Your Wallet'}
+        </h2>
+        </div>
       </main>
     </>
   )

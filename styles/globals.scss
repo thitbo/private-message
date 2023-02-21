@@ -1,0 +1,55 @@
+@import './main.scss';
+@import './color';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--general);
+  color: var(--text-content);
+}
+
+html {
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  // overflow: hidden;
+  font-size: 56% !important;
+  scrollbar-width: thin;
+  background: var(--general);
+}
+
+body {
+  width: 100%;
+  line-height: 1.3;
+  // overflow: hidden;
+  font-size: 1.6rem;
+  background: var(--general);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button-connect {
+  padding: $space-4 $space-6;
+  border-radius: $radius-sm;
+  background-color: var(--background-child);
+  color: var(--text);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: 0.3s all;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}

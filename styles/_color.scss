@@ -1,0 +1,37 @@
+:root {
+  --general: #181828;
+  --background: #3e3d5e;
+  --background-white: #ffffff;
+  --background-child: #16171b;
+  --background-second: #bbbbbb;
+
+  --background-button: '#eff889';
+
+  --text: #ffffff;
+  --text-content: #bbbbbb;
+  --text-reverse: #000000;
+
+  --color-red: #b94f3d;
+  --color-yellow: #debc41;
+  --color-green: #60a05f;
+  --color-blue: #4a86be;
+}
+
+[data-theme='light'] {
+  --general: #181828;
+  --background: #3e3d5e;
+  --background-white: #ffffff;
+  --background-child: #16171b;
+  --background-second: #bbbbbb;
+
+  --background-button: '#eff889';
+
+  --text: #ffffff;
+  --text-content: #bbbbbb;
+  --text-reverse: #000000;
+
+  --color-red: #b94f3d;
+  --color-yellow: #debc41;
+  --color-green: #60a05f;
+  --color-blue: #4a86be;
+}
