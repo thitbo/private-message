@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 
 import styles from '../styles/Home.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const router = useRouter()
   const [account, setAccount] = useState()
+  const [message, setMessage] = useState()
 
   const handleConnect = async () => {
     try {
@@ -28,6 +29,12 @@ export default function Home() {
     router.push('/chat-room')
   }
 
+  useEffect(() => {
+    if (!window.coin98 || !window.ethereum || !window.ethereum?.isCoin98) {
+      setMessage('Please Install Coin98 Extension')
+    }
+  }, [])
+
   return (
     <>
       <Head>
@@ -43,7 +50,7 @@ export default function Home() {
         </button>
 
         <h2 className="address-connect">
-          {account ? `Welcome ${account}` : 'Please Connect Your Wallet'}
+          {message ? message : account ? `Welcome ${account}` : 'Please Connect Your Wallet'}
         </h2>
         </div>
       </main>
