@@ -1,0 +1,143 @@
+@import './styles/main.scss';
+
+.chatRoomContainer {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  :global {
+    .header-chat {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: $space-4;
+      background-color: var(--background-white);
+
+      .header-chat__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 960px;
+        margin: 0 auto;
+
+        .head-left {
+          display: flex;
+          align-items: center;
+          gap: $space-2;
+
+          .icon-user {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--background-child);
+            color: var(--text);
+          }
+
+          .info-user {
+            color: var(--text-reverse);
+
+            .status-user {
+              width: 1.2rem;
+              height: 1.2rem;
+              border-radius: 50%;
+              background-color: var(--color-green);
+            }
+          }
+        }
+
+        .head-right {
+          .btn-disconnect {
+            padding: $space-4 $space-6;
+            background-color: var(--background-second);
+            border-radius: $radius-sm;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            cursor: pointer;
+            transition: 0.3s all;
+
+            &:hover {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+
+    .chat-body {
+      width: 720px;
+      border-radius: $radius-sm1;
+      padding: $space-4;
+      min-height: 45vh;
+      max-height: 55vh;
+      background-color: var(--background);
+
+      .chat-content {
+        width: 100%;
+        height: 100%;
+        border-radius: $radius-sm1;
+
+        .chat-show {
+          height: 35vh;
+          margin-bottom: $space-5;
+          background-color: var(--background-child);
+          border-radius: $radius-sm1;
+          padding: $space-4;
+
+          .item-chat {
+            margin-bottom: $space-6;
+            width: 100%;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &--guest {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+            }
+
+            .text-account {
+              display: flex;
+              align-items: center;
+              gap: $space-2;
+              margin-bottom: $space-2;
+            }
+          }
+        }
+
+        .input-container {
+          width: 100%;
+          min-height: 5rem;
+          max-height: 10rem;
+          padding: $space-4;
+          border-radius: $radius-sm1;
+          background-color: var(--background-child);
+          display: flex;
+          align-items: flex-start;
+          overflow: hidden;
+
+          .input-form {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            color: var(--text);
+            resize: none;
+            overflow: auto;
+            max-height: 10rem - 1.6rem * 2;
+          }
+        }
+      }
+    }
+  }
+}
